@@ -47,3 +47,5 @@ class Solution(object):
         """
         
         return any(target in row for row in matrix)
+
+********再不好好刷LC就得去街边喝西北风了********
