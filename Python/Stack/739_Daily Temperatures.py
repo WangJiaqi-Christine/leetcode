@@ -11,3 +11,20 @@ return an array answer such that answer[i] is the number of days you have to wai
 If there is no future day for which this is possible, keep answer[i] == 0 instead.
 """
 
+class Solution(object):
+    def dailyTemperatures(self, temperatures):
+        """
+        :type temperatures: List[int]
+        :rtype: List[int]
+        """
+        res = [0] * len(temperatures)
+        stack = []
+        
+        for i, v in enumerate(temperatures):
+            while stack and (v > temperatures[stack[-1]]):
+                top = stack.pop()
+                res[top] = i - top
+            stack.append(i)
+        
+        return res
+                
